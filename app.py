@@ -30,7 +30,8 @@ def index():
   # should be generated
   if request.args.get('size') != None:
     size = unicode(request.args.get('size'))
-
+  else:
+    size = 50
   with open('source.txt') as f:
     rawText = f.read()
 
@@ -44,7 +45,7 @@ def index():
       if (i > 0):
           newSpeech += " "
       newSpeech += model.make_sentence()
-  else size == "":
+  elif size == "":
     for i in range(2):
       if (i > 0):
           newSpepech += " "
